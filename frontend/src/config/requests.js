@@ -1,0 +1,22 @@
+const requests = {
+  uploadFile: "/api/upload",
+  uploadBalanceSheetFile: "/api/uploadBalanceSheet",
+  login: "/api/login",
+  register: "/api/register",
+  getUsers: "/api/allUsers",
+  getFiles: "/api/allFiles",
+  sendInvitation: "/api/inviteLink",
+  deleteUser: "/api/deleteUser",
+  createPassword: "/api/createPassword",
+  addNewUser: "/api/addUser",
+  getTransactions: "/api/transactions",
+  getReportWithBaseAmount: "/api/getReportWithBaseAmount",
+  getAccountDetails: "/api/accountDetails",
+  getFraudAccounts: "/api/fraudAccounts",
+  getFlowByTransaction: "/api/getFlowByTransaction",
+  updateStatus: "/api/updateComplaint",
+  getAllComplaints: "/api/getComplaints",
+  getBranch: "/api/getBranches",
+  getNodes: "/api/createNodes",
+};
+export default requests;
