@@ -16,7 +16,7 @@ a:hover {
 }
 
 a.active {
-  color: #10316B;
+  color: #482880;
   font-weight: bold;
 }
 
@@ -30,13 +30,8 @@ body {
   align-items: center;
   justify-content: space-between;
   width: 100vw;
-  padding: 24px;
   max-width: 1200px;
   margin: auto;
-}
-
-.stats-img-container {
-  position: relative;
 }
 
 .hamburger {
@@ -80,7 +75,7 @@ body {
     font-size: 1.2rem;
   }
 
-  .display-none{
+  .display-none {
     display: none;
   }
 }

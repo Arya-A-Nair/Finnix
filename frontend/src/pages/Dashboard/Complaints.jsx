@@ -127,12 +127,17 @@ function Complaints() {
             const response = await axios.get(
               `https://api.mapbox.com/geocoding/v5/mapbox.places/${complains[i].bankBranch}.json?access_token=pk.eyJ1IjoiYXJ5YXJveCIsImEiOiJjbGtwZGhsZGIyYXp0M2RrZzQ1YmRjeGVxIn0.t-ZYbpmvLe1KJdbh_RzkVQ`
             );
-            newData.push({ center: response.data.features[0].center, type: complains[i].type });
+            newData.push({
+              center: response.data.features[0].center,
+              type: complains[i].type,
+            });
           }
           setData(newData);
           newData.map((item) => {
             console.log(item);
-            const marker = new mapboxgl.Marker(item.type === "pending" ? { color: 'red' } : { color: 'green' })
+            const marker = new mapboxgl.Marker(
+              item.type === 'pending' ? { color: 'red' } : { color: 'green' }
+            )
               .setLngLat([item.center[0], item.center[1]]) // Coordinates for the point to be displayed
               .addTo(map);
           });
@@ -158,7 +163,9 @@ function Complaints() {
       }
     } catch (error) {
       console.error(error);
-      enqueueSnackbar('Unable to accept complaint ' + error.message, { variant: 'error' });
+      enqueueSnackbar('Unable to accept complaint ' + error.message, {
+        variant: 'error',
+      });
     }
   }
 
@@ -188,7 +195,7 @@ function Complaints() {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        bgcolor: '#F2F7FF',
+        bgcolor: 'background.default',
         borderRadius: '0.5rem',
       }}
     >
@@ -280,7 +287,6 @@ function Complaints() {
                 sx={{ marginTop: 2 }}
                 startIcon={<BiArrowBack />}
               >
-
                 Back
               </Button>
               <Box
@@ -313,7 +319,13 @@ function Complaints() {
             </Box>
           </Box>
         ) : (
-          <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" width="100%">
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            justifyContent="center"
+            width="100%"
+          >
             <Box
               sx={{
                 display: 'flex',
@@ -347,8 +359,9 @@ function Complaints() {
               >
                 <DataGrid
                   rows={
-                    complaints?.map((item, index) => ({ ...item, id: index })).filter(c => c.type === "pending") ||
-                    []
+                    complaints
+                      ?.map((item, index) => ({ ...item, id: index }))
+                      .filter((c) => c.type === 'pending') || []
                   }
                   loading={!complaints}
                   columns={columns}
@@ -419,8 +432,9 @@ function Complaints() {
               >
                 <DataGrid
                   rows={
-                    complaints?.map((item, index) => ({ ...item, id: index })).filter(c => c.type === "accepted") ||
-                    []
+                    complaints
+                      ?.map((item, index) => ({ ...item, id: index }))
+                      .filter((c) => c.type === 'accepted') || []
                   }
                   loading={!complaints}
                   columns={columns}

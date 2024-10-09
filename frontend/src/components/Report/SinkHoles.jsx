@@ -94,7 +94,7 @@ function SinkHoles({ isPrinting }) {
         sx={
           isPrinting
             ? {
-                bgcolor: '#F2F7FF',
+                bgcolor: 'background.default',
                 width: '100%',
                 borderRadius: '1.5rem',
                 padding: '1rem',
@@ -102,7 +102,7 @@ function SinkHoles({ isPrinting }) {
                 display: 'none',
               }
             : {
-                bgcolor: '#F2F7FF',
+                bgcolor: 'background.default',
                 width: '100%',
                 borderRadius: '1.5rem',
                 padding: '1rem',
@@ -119,7 +119,7 @@ function SinkHoles({ isPrinting }) {
       </Box>
       <Box
         sx={{
-          bgcolor: '#F2F7FF',
+          bgcolor: 'background.default',
           width: '100%',
           borderRadius: '1.5rem',
           padding: '1rem',
@@ -161,7 +161,7 @@ function SinkHoles({ isPrinting }) {
             item
             xs={5}
             sx={{
-              bgcolor: '#F2F7FF',
+              bgcolor: 'background.default',
               borderRadius: '1.5rem',
               textAlign: 'center',
               padding: '1rem',

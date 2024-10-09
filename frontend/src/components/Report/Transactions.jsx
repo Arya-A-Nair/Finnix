@@ -56,7 +56,7 @@ function Transactions({ data }) {
   return (
     <Box
       sx={{
-        bgcolor: '#F2F7FF',
+        bgcolor: 'background.default',
         width: '95%',
         borderRadius: '1.5rem',
         padding: '1rem',
@@ -87,7 +87,7 @@ function Transactions({ data }) {
           onCellClick={handleCellClick}
           sx={{
             px: '1rem',
-            bgcolor: '#F2F7FF',
+            bgcolor: 'background.default',
             '&.MuiDataGrid-root .MuiDataGrid-columnHeader:focus, &.MuiDataGrid-root .MuiDataGrid-cell:focus':
               {
                 outline: 'none',

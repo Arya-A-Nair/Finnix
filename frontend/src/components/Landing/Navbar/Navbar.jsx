@@ -43,7 +43,7 @@ function Navbar() {
             textTransform: 'uppercase',
             pl: 2,
             fontSize: '1.2rem',
-            color: '#10316B',
+            color: 'primary.main',
           }}
         >
           Dhanush

@@ -19,7 +19,7 @@ function CustomChart({
 	// Define the icons map with names and JSX elements
 
 	const style = {
-		color: "#10316B",
+		color: "primary.main",
 		fontSize: "2rem",
 	};
 
@@ -139,7 +139,7 @@ function CustomChart({
 					<Button
 						key={i}
 						sx={{
-							bgcolor: "#FFF",
+							bgcolor: "background.paper",
 							display: "flex",
 							flexDirection: "column",
 							alignItems: "start",

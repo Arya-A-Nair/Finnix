@@ -1,4 +1,4 @@
-import { Outlet, createBrowserRouter } from 'react-router-dom';
+import { Navigate, Outlet, createBrowserRouter } from 'react-router-dom';
 import Home from '../pages/Landing/Home';
 import Login from '../pages/Landing/Login';
 // import Register from "../pages/Landing/Register";
@@ -27,32 +27,50 @@ import ViewHistory from '../pages/Dashboard/ViewHistory';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: (
-      <div style={{ backgroundColor: '#F2F7FF', minHeight: '100vh' }}>
-        <Navbar />
-        <Outlet />
-      </div>
-    ),
-    children: [
-      {
-        path: '/',
-        element: <Home />,
-      },
-      {
-        path: 'report-fraud',
-        element: <Report />,
-      },
-      // Protect this custom route
-      {
-        path: 'set-password/:token',
-        element: (
-          <>
-            <Magic />
-          </>
-        ),
-      },
-    ],
+    element: <Navigate to="/login" />,
   },
+  {
+    path: 'login',
+    element: <Login />,
+  },
+  {
+    path: 'set-password/:token',
+    element: (
+      <>
+        <Magic />
+      </>
+    ),
+  },
+
+  // OLD ROUTES
+  // {
+  //   path: '/',
+  //   element: (
+  //     <div style={{ backgroundColor: '#F2F7FF', minHeight: '100vh' }}>
+  //       <Navbar />
+  //       <Outlet />
+  //     </div>
+  //   ),
+  //   children: [
+  //     {
+  //       path: '/',
+  //       element: <Home />,
+  //     },
+  //     {
+  //       path: 'report-fraud',
+  //       element: <Report />,
+  //     },
+  //     // Protect this custom route
+  //     {
+  //       path: 'set-password/:token',
+  //       element: (
+  //         <>
+  //           <Magic />
+  //         </>
+  //       ),
+  //     },
+  //   ],
+  // },
   {
     path: '/dashboard',
     element: (
@@ -124,10 +142,6 @@ const router = createBrowserRouter([
         element: <SuspectedAccounts />,
       },
     ],
-  },
-  {
-    path: 'login',
-    element: <Login />,
   },
   {
     path: '*',

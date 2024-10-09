@@ -7,7 +7,7 @@ function Users({ name }) {
     <ListItemButton
       style={{
         background: 'rgb(11, 64, 156, .1)',
-        color: '#10316B',
+        color: '#482880',
         borderRadius: '12px',
         transition: 'all 0.5s ease-in-out',
         marginBottom: '1rem',

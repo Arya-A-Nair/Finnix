@@ -17,7 +17,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import NavLink from './NavLink';
 import { HiMenuAlt2 } from 'react-icons/hi';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { menuList } from '../../../utils/menuList';
+import { menuList } from '../../../config/menuList';
 import { FaArrowRightFromBracket } from 'react-icons/fa6';
 
 function Sidebar({ children }) {
@@ -44,26 +44,40 @@ function Sidebar({ children }) {
   const list = (
     <Box role="presentation" mx={2}>
       <List>
-        <div
-          style={{
+        <Box
+          sx={{
             marginBottom: '1rem',
             cursor: 'pointer',
           }}
         >
-          <ListItem onClick={() => navigate('/')}>
+          <ListItem
+            onClick={() => navigate('/dashboard/upload-data')}
+            sx={{
+              display: 'flex',
+              justifyContent: 'start',
+              alignItems: 'center',
+              width: '100%',
+            }}
+          >
             <ListItemIcon>
               <img src="/logo.svg" alt="Logo" width="40" />
             </ListItemIcon>
-            <ListItemText>
-              <h3 style={{ color: '#10316B' }}>Dhanush</h3>
-            </ListItemText>
+            <Typography
+              color="primary"
+              fontWeight="700"
+              textTransform="uppercase"
+              display="inline"
+            >
+              Finix Dashboard
+            </Typography>
           </ListItem>
-          <Divider sx={{ marginLeft: '-20px' }} />
-        </div>
+          <Divider sx={{ mb: 4 }} />
+        </Box>
 
         {/* Menu Items */}
-        <Typography>Menu</Typography>
+        {/* <Typography color="primary.main">Menu</Typography> */}
         {menuList.map((item, index) => {
+          // eslint-disable-next-line array-callback-return
           if (!item.icon) return; // Menu items without icons are not rendered in the sidebar
           return (
             <div key={index}>
@@ -74,7 +88,12 @@ function Sidebar({ children }) {
                 onClickNavigateTo={item.onClickNavigateTo}
                 isActive={currentRoute === item.route}
               />
-              {index === 6 && <Typography mt={1}>Other</Typography>}
+              {/* {index === 4 && (
+                <Typography mt={1} color="primary.main">
+                  Other
+                </Typography>
+                <Divider sx={{ my: 3 }} />
+              )} */}
             </div>
           );
         })}
@@ -89,8 +108,8 @@ function Sidebar({ children }) {
         sx={{
           width: { sm: `calc(100% - 280px)` },
           ml: { sm: `280px` },
-          backgroundColor: '#fff',
-          color: '#10316B',
+          backgroundColor: 'background.paper',
+          color: 'primary.main',
           borderLeft: 'none',
         }}
         variant="outlined"
@@ -123,15 +142,18 @@ function Sidebar({ children }) {
             </Typography>
           </Toolbar>
           <Button
-            variant="outlined"
+            variant="contained"
             startIcon={<FaArrowRightFromBracket />}
-            color="error"
+            color="primary"
             onClick={handleLogOut}
+            sx={{
+              borderRadius: '10px',
+            }}
           >
             Log Out
           </Button>
         </Box>
-      </AppBar >
+      </AppBar>
       <Box component="nav" sx={{ width: { md: 280 }, flexShrink: { md: 0 } }}>
         <Drawer
           open={isDrawerOpen}
@@ -142,8 +164,8 @@ function Sidebar({ children }) {
             '& .MuiDrawer-paper': {
               width: 280,
               boxSizing: 'border-box',
-              bgcolor: '#F2F7FF',
-              color: 'rgb(11, 64, 156, .7)',
+              bgcolor: 'background.paper',
+              color: 'text.primary',
             },
           }}
           variant="permanent"
@@ -163,8 +185,8 @@ function Sidebar({ children }) {
               width: 280,
               boxSizing: 'border-box',
               display: { xs: 'block', sm: 'none' },
-              bgcolor: '#F2F7FF',
-              color: 'rgb(11, 64, 156, .7)',
+              bgcolor: 'background.paper',
+              color: 'text.primary',
             },
           }}
           variant="temporary"
@@ -179,13 +201,14 @@ function Sidebar({ children }) {
         sx={{
           flexGrow: 1,
           p: 2,
+          bgcolor: 'background.default',
           // width: { sm: `calc(100% - 280px)` },
         }}
       >
         <Toolbar />
         {children}
       </Box>
-    </Box >
+    </Box>
   );
 }
 

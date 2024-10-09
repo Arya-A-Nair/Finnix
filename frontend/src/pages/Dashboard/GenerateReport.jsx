@@ -24,6 +24,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import FraudAccounts from '../../components/Report/FraudAccounts';
 import EdgeAnalysis from './EdgeAnalysis';
 import { enqueueSnackbar } from 'notistack';
+import { BiDownload } from 'react-icons/bi';
 
 function GenerateReport() {
   const [fraud, setFraud] = useState('');
@@ -130,7 +131,7 @@ function GenerateReport() {
       {generateReport && !option && (
         <Box
           sx={{
-            bgcolor: '#F2F7FF',
+            bgcolor: 'background.default',
             width: '95%',
             borderRadius: '1.5rem',
             padding: '1rem',
@@ -181,6 +182,7 @@ function GenerateReport() {
                   my: '1rem',
                 }}
                 onClick={handleDownload}
+                startIcon={<BiDownload />}
               >
                 Download Report
               </Button>

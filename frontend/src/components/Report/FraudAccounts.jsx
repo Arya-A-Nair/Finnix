@@ -56,7 +56,7 @@ function FraudAccounts({ data, fraudAccounts }) {
   return (
     <Box
       sx={{
-        bgcolor: '#F2F7FF',
+        bgcolor: 'background.default',
         width: '95%',
         borderRadius: '1.5rem',
         padding: '1rem',
@@ -84,7 +84,7 @@ function FraudAccounts({ data, fraudAccounts }) {
           onRowClick={handleRowClick}
           sx={{
             px: '1rem',
-            bgcolor: '#F2F7FF',
+            bgcolor: 'background.default',
             '&.MuiDataGrid-root .MuiDataGrid-columnHeader:focus, &.MuiDataGrid-root .MuiDataGrid-cell:focus':
               {
                 outline: 'none',

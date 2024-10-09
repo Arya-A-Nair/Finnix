@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   Divider,
   InputAdornment,
@@ -9,13 +9,13 @@ import {
   ToggleButton,
   Button,
   CircularProgress,
-} from "@mui/material";
-import axios from "axios";
+} from '@mui/material';
+import axios from 'axios';
 
 const textFieldSx = {
   m: 2,
-  minWidth: "30%",
-  "@media (max-width: 700px)": { minWidth: "90%" },
+  minWidth: '30%',
+  '@media (max-width: 700px)': { minWidth: '90%' },
 };
 
 function DetectFraud() {
@@ -27,11 +27,11 @@ function DetectFraud() {
     try {
       const jsonData = JSON.stringify(input);
       const response = await axios.post(
-        "https://frauddetection-xnph.onrender.com/",
+        'https://frauddetection-xnph.onrender.com/',
         jsonData,
         {
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
         }
       );
@@ -44,13 +44,13 @@ function DetectFraud() {
   };
 
   const [input, setInput] = useState({
-    amount: "",
-    oldBalanceOrig: "",
-    newBalanceOrig: "",
-    oldBalanceDest: "",
-    newBalanceDest: "",
-    step: "",
-    type: "",
+    amount: '',
+    oldBalanceOrig: '',
+    newBalanceOrig: '',
+    oldBalanceDest: '',
+    newBalanceDest: '',
+    step: '',
+    type: '',
   });
 
   const handleInputChange = (event) => {
@@ -64,26 +64,26 @@ function DetectFraud() {
   return (
     <Box
       sx={{
-        display: "flex",
-        height: "90%",
-        width: "100%",
-        alignItems: "center",
-        flexDirection: "column",
+        display: 'flex',
+        height: '90%',
+        width: '100%',
+        alignItems: 'center',
+        flexDirection: 'column',
       }}
     >
       <Box
         sx={{
-          bgcolor: "#F2F7FF",
-          width: "95%",
-          borderRadius: "1.5rem",
-          padding: "1rem",
-          textAlign: "center",
+          bgcolor: 'background.default',
+          width: '95%',
+          borderRadius: '1.5rem',
+          padding: '1rem',
+          textAlign: 'center',
         }}
       >
         <Typography variant="h5" fontWeight="700" color="primary">
           Analyze Fraudulent Data using AI
         </Typography>
-        <Divider sx={{ my: "0.5rem" }}></Divider>
+        <Divider sx={{ my: '0.5rem' }}></Divider>
         <TextField
           label="Transfer Amount"
           id="outlined-start-adornment"
@@ -180,9 +180,9 @@ function DetectFraud() {
           variant="contained"
           color="primary"
           sx={{
-            marginBottom: "1.5rem",
-            px: "3rem",
-            my: "1rem",
+            marginBottom: '1.5rem',
+            px: '3rem',
+            my: '1rem',
           }}
           onClick={handleSubmit}
         >
@@ -190,17 +190,17 @@ function DetectFraud() {
         </Button>
         <Box
           sx={{
-            bgcolor: "#FFF",
-            width: "100%",
-            borderRadius: "1.5rem",
-            padding: "1rem",
-            textAlign: "center",
+            bgcolor: '#FFF',
+            width: '100%',
+            borderRadius: '1.5rem',
+            padding: '1rem',
+            textAlign: 'center',
           }}
         >
           <Typography variant="h5" fontWeight="700" color="primary">
             Calculated Results
           </Typography>
-          <Divider sx={{ my: "0.5rem" }}></Divider>
+          <Divider sx={{ my: '0.5rem' }}></Divider>
           {/* show loading if results is undefiend */}
           {results === undefined && isLoading === false ? (
             <Typography variant="h6" color="primary">
@@ -213,7 +213,7 @@ function DetectFraud() {
           ) : (
             <>
               <Typography variant="h6" color="primary" mt={2} mb={1}>
-                The Transaction is most likely {results === "1" ? null : "not "}
+                The Transaction is most likely {results === '1' ? null : 'not '}
                 a fraud
               </Typography>
               <Typography variant="h6" color="primary" mt={2} mb={1}>

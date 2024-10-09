@@ -124,11 +124,11 @@ function FormatedData() {
           onCellClick={handleCellClick}
           sx={{
             px: '1rem',
-            bgcolor: '#F2F7FF',
+            bgcolor: 'background.default',
             '&.MuiDataGrid-root .MuiDataGrid-columnHeader:focus, &.MuiDataGrid-root .MuiDataGrid-cell:focus':
-            {
-              outline: 'none',
-            },
+              {
+                outline: 'none',
+              },
           }}
         />
       </Box>

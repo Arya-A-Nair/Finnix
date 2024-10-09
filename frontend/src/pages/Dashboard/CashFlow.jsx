@@ -208,7 +208,7 @@ function CashFlow() {
         <Box
           sx={{
             padding: '1rem',
-            bgcolor: '#F2F7FF',
+            bgcolor: 'background.default',
             transition: 'all 0.3s',
             width: '500px',
             minHeight: '40vh',

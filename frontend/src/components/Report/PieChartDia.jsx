@@ -35,10 +35,11 @@ export default function PieChartDia({ chartData, fraud, total, totalTitle }) {
   return (
     <Box
       sx={{
-        bgcolor: '#FFF',
+        bgcolor: 'background.paper',
         width: 'auto',
         borderRadius: '0.5rem',
         padding: '1rem 2rem',
+        height: '100%',
         textAlign: 'start',
       }}
     >

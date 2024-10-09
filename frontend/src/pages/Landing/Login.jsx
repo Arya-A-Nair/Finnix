@@ -41,7 +41,7 @@ function Login() {
     }
   }
   return (
-    <Box 
+    <Box
       sx={{
         height: '100vh',
         width: '100vw',
@@ -49,7 +49,7 @@ function Login() {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        bgcolor: '#F2F7FF'
+        bgcolor: 'background.default',
       }}
     >
       <Box display="flex" alignItems="center" flex="0.25" mt={5}>
@@ -60,10 +60,11 @@ function Login() {
             textTransform: 'uppercase',
             pl: 2,
             fontSize: '2rem',
-            color: '#10316B',
+            color: 'primary.main',
+            zIndex: '10',
           }}
         >
-          Dhanush
+          Finix
         </Box>
       </Box>
       <Box
@@ -83,12 +84,19 @@ function Login() {
         <img
           src="/stats-bg-gradient.svg"
           alt=""
-          style={{ position: 'absolute', width: '60vw' }}
+          style={{
+            position: 'absolute',
+            width: '90vw',
+            zIndex: '0',
+            left: '50%',
+            top: '50%',
+            transform: 'translate(-50%, -50%)',
+          }}
         />
         <img
-          src="/Login-img.svg"
+          src="/Login-img.png"
           alt=""
-          style={{ height: '70vh', zIndex: '1' }}
+          style={{ zIndex: '1', width: '45vw', mr: 2 }}
           className="display-none"
         />
         <LoginCard

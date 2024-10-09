@@ -61,7 +61,7 @@ function EdgeAnalysis() {
   );
   const [usersList, setUsersList] = useState(null);
   const [nodes, setNodes] = useState([]);
-  const [text, setText] = useState("Please Select A Transaction")
+  const [text, setText] = useState('Please Select A Transaction');
   const [edges, setEdges] = useState([]);
   const [dataGridEdges, setDataGridEdges] = useState([]);
   const { getApiHeadersWithToken } = React.useContext(AuthContext);
@@ -132,15 +132,15 @@ function EdgeAnalysis() {
         }
       } catch (error) {
         enqueueSnackbar('Unable to get transactions', { variant: 'error' });
-        setText("No transaction found!")
+        setText('No transaction found!');
       }
     };
     fetchFiles();
-
   }, [getApiHeadersWithToken, transactionId]);
 
-  useEffect(() => { console.log(text) }, [text]);
-
+  useEffect(() => {
+    console.log(text);
+  }, [text]);
 
   const handleCellClick = (params) => {
     const { row, field } = params;
@@ -181,7 +181,7 @@ function EdgeAnalysis() {
             fetchFiles();
           } catch (error) {
             enqueueSnackbar('Unable to get transactions', { variant: 'error' });
-            setText("No transaction found!")
+            setText('No transaction found!');
           }
         }
       };
@@ -203,7 +203,7 @@ function EdgeAnalysis() {
     >
       <Box
         sx={{
-          bgcolor: '#F2F7FF',
+          bgcolor: 'background.default',
           width: '100%',
           borderRadius: '0.5rem',
           padding: '1rem',
@@ -248,7 +248,7 @@ function EdgeAnalysis() {
             }}
             defaultEdges={edges}
             defaultNodes={nodes}
-          // nodeClick={() => console.log()}
+            // nodeClick={() => console.log()}
           />
         ) : (
           <Box
@@ -263,7 +263,11 @@ function EdgeAnalysis() {
               alignItems: 'center',
             }}
           >
-            <Typography variant="h5" fontWeight={600} color={text === "No transaction found!" ? "error" : "primary"}>
+            <Typography
+              variant="h5"
+              fontWeight={600}
+              color={text === 'No transaction found!' ? 'error' : 'primary'}
+            >
               {text}
             </Typography>
           </Box>
@@ -289,11 +293,11 @@ function EdgeAnalysis() {
           onCellClick={handleCellClick}
           sx={{
             px: '1rem',
-            bgcolor: '#F2F7FF',
+            bgcolor: 'background.default',
             '&.MuiDataGrid-root .MuiDataGrid-columnHeader:focus, &.MuiDataGrid-root .MuiDataGrid-cell:focus':
-            {
-              outline: 'none',
-            },
+              {
+                outline: 'none',
+              },
           }}
         />
       </Box>

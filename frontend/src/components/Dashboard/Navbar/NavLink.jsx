@@ -11,10 +11,10 @@ const NavLink = ({ text, icon, onClickNavigateTo, isActive }) => {
         style={{ textDecoration: 'none', color: 'inherit' }}
       >
         <ListItemButton
-          style={{
-            background: isActive ? 'rgb(11, 64, 156, .1)' : 'inherit',
-            color: isActive ? '#10316B' : 'rgb(16, 49, 107, 0.6)',
-            borderRadius: '12px',
+          sx={{
+            bgcolor: isActive ? 'primary.light' : 'inherit',
+            color: isActive ? 'primary.dark' : 'primary.main',
+            borderRadius: '50px',
             transition: 'all 0.5s ease-in-out',
             marginTop: '0.3rem',
             paddingLeft: '2.5rem',
@@ -24,9 +24,7 @@ const NavLink = ({ text, icon, onClickNavigateTo, isActive }) => {
             <ListItemIcon
               sx={{
                 minWidth: '30px',
-                color: isActive
-                  ? 'rgb(166, 171, 200)'
-                  : 'rgb(166, 171, 200, 0.6)',
+                color: isActive ? 'primary.dark' : 'primary.main',
                 scale: '1.6',
               }}
               children={icon}

@@ -1,13 +1,13 @@
-import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-import NotFound from "../pages/NotFound/NotFound";
-import LoadingScreen from "./LoadingScreen";
+import NotFound from '../pages/NotFound/NotFound';
+import LoadingScreen from './LoadingScreen';
 
-import AuthContext from "../context/AuthContext";
+import AuthContext from '../context/AuthContext';
 
-import axios from "../config/axios";
-import { menuList } from "../utils/menuList";
+import axios from '../config/axios';
+import { menuList } from '../config/menuList';
 
 const ProtectedRoute = ({ children }) => {
   const { user, token, getApiHeadersWithToken, userRole } =
@@ -25,22 +25,22 @@ const ProtectedRoute = ({ children }) => {
         try {
           // Verify's if token is valid or expired
           const { data } = await axios.get(
-            "/verifyAccessToken",
+            '/verifyAccessToken',
             getApiHeadersWithToken()
           );
 
-          if (data.error === "invalid access token") {
-            console.log("Invalid token");
+          if (data.error === 'invalid access token') {
+            console.log('Invalid token');
             localStorage.clear();
-            navigate("/login", {
+            navigate('/login', {
               state: { isTokenExpired: true },
             });
           }
         } catch (error) {
-          if (error?.response?.data.error === "invalid access token") {
-            console.log("Invalid token");
+          if (error?.response?.data.error === 'invalid access token') {
+            console.log('Invalid token');
             localStorage.clear();
-            navigate("/login", {
+            navigate('/login', {
               state: { isTokenExpired: true },
             });
           }
