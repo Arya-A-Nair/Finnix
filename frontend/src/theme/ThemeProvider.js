@@ -5,25 +5,27 @@ const StyleThemeProvider = (props) => {
     palette: {
       type: 'light',
       primary: {
-        main: '#482880',
-        light: '#ad96d6',
-        dark: '#361e5e',
+        main: '#B7202E',
+        light: '#ED1C24',
       },
       secondary: {
-        main: '#8561c5',
-      },
-      text: {
-        primary: '#161616',
-        secondary: 'rgba(22,22,22,0.75)',
-        disabled: 'rgba(22,22,22,0.5)',
-        hint: 'rgba(22,22,22,0.65)',
+        main: '#004a9c',
+        light: '#006699',
+        dark: '#004466',
       },
       background: {
-        default: '#F8ECFD',
-        paper: '#f0deff',
+        paper: '#f5e3e3',
+        default: '#FFF2F2',
       },
       error: {
         main: '#f44336',
+      },
+      // divider: '#58595B',
+      text: {
+        primary: '#231F20',
+        disabled: '#58595B',
+        hint: 'rgba(88,89,91,0.7)',
+        secondary: 'rgba(35,31,32,0.9)',
       },
     },
     typography: {

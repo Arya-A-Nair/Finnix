@@ -82,7 +82,7 @@ function Login() {
         }}
       >
         <img
-          src="/stats-bg-gradient.svg"
+          src="/stats-bg-gradient.png"
           alt=""
           style={{
             position: 'absolute',
