@@ -171,7 +171,7 @@ function GenerateReport() {
                 handleClick={handleClick}
               />
             </Grid>
-            <Grid xs="12" mt={2}>
+            {/* <Grid xs="12" mt={2}>
               <Button
                 type="submit"
                 variant="contained"
@@ -186,7 +186,7 @@ function GenerateReport() {
               >
                 Download Report
               </Button>
-            </Grid>
+            </Grid> */}
           </Grid>
         </Box>
       )}
@@ -209,13 +209,13 @@ function GenerateReport() {
       {(option === 'Transactions' || print) && <Transactions data={data} />}
       {(option === 'Networks' || print) && <Networks data={data} />}
       {(option === 'Mule Bridges' || print) && <MuleBridges data={data} />}
-      {(option === 'Groups' || print) && <Groups data={data} />}
+      {/* {(option === 'Groups' || print) && <Groups data={data} />}
       {(option === 'Sink Holes' || print) && (
         <SinkHoles data={data} isPrinting={print} />
       )}
       {(option === 'Fraud Accounts' || print) && (
         <FraudAccounts data={data} fraudAccounts={fraudAccounts} />
-      )}
+      )} */}
       {/* {(option === "Edge Analysis" || print) && <EdgeAnalysis />} */}
     </Box>
   );

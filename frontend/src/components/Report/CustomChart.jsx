@@ -69,45 +69,45 @@ function CustomChart({
 			}`,
 			info: "Get shell accounts whose only purpose is to push money",
 		},
-		{
-			name: "Groups",
-			icon: <HiMiniUserGroup style={style} />,
-			value: groups,
-			impact: `${
-				groups === 0
-					? "No"
-					: groups < 5
-					? "Low"
-					: groups < 10
-					? "Medium"
-					: "High"
-			}`,
-			info: "Get groups of accounts that are connected to each other",
-		},
-		{
-			name: "Sink Holes",
-			icon: <GiHole style={style} />,
-			value: holes,
-			impact: `${
-				holes === 0 ? "No" : holes < 5 ? "Low" : holes < 10 ? "Medium" : "High"
-			}`,
-			info: "Get the to know wether the asset has been paid via illicit means",
-		},
-		{
-			name: "Fraud Accounts",
-			icon: <BiBlock style={style} />,
-			value: fAccounts,
-			impact: `${
-				fAccounts === 0
-					? "No"
-					: fAccounts < 5
-					? "Low"
-					: fAccounts < 10
-					? "Medium"
-					: "High"
-			}`,
-			info: "Get accounts which start and end very fast while also transacting heavy amounts",
-		},
+		// {
+		// 	name: "Groups",
+		// 	icon: <HiMiniUserGroup style={style} />,
+		// 	value: groups,
+		// 	impact: `${
+		// 		groups === 0
+		// 			? "No"
+		// 			: groups < 5
+		// 			? "Low"
+		// 			: groups < 10
+		// 			? "Medium"
+		// 			: "High"
+		// 	}`,
+		// 	info: "Get groups of accounts that are connected to each other",
+		// },
+		// {
+		// 	name: "Sink Holes",
+		// 	icon: <GiHole style={style} />,
+		// 	value: holes,
+		// 	impact: `${
+		// 		holes === 0 ? "No" : holes < 5 ? "Low" : holes < 10 ? "Medium" : "High"
+		// 	}`,
+		// 	info: "Get the to know wether the asset has been paid via illicit means",
+		// },
+		// {
+		// 	name: "Fraud Accounts",
+		// 	icon: <BiBlock style={style} />,
+		// 	value: fAccounts,
+		// 	impact: `${
+		// 		fAccounts === 0
+		// 			? "No"
+		// 			: fAccounts < 5
+		// 			? "Low"
+		// 			: fAccounts < 10
+		// 			? "Medium"
+		// 			: "High"
+		// 	}`,
+		// 	info: "Get accounts which start and end very fast while also transacting heavy amounts",
+		// },
 		// {
 		//     name: 'Edge Analysis',
 		//     icon: <BiLogoGraphql style={style} />,
