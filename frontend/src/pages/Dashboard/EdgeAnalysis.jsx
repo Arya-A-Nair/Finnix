@@ -210,10 +210,10 @@ function EdgeAnalysis() {
           textAlign: 'center',
         }}
       >
-        <Typography variant="h5" fontWeight="700" color="primary">
+        {/* <Typography variant="h5" fontWeight="700" color="primary">
           Analysis Report
         </Typography>
-        <Divider sx={{ my: '0.5rem' }}></Divider>
+        <Divider sx={{ my: '0.5rem' }}></Divider> */}
         <FormControl sx={{ width: '50%' }}>
           {/* <InputLabel id="demo-simple-select-label">Transaction ID</InputLabel> */}
 

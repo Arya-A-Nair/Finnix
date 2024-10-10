@@ -18,55 +18,54 @@ const ProtectedRoute = ({ children }) => {
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
-    if (user === null || token === null) {
-      setLoading(null);
-    } else {
-      const verifyToken = async () => {
-        try {
-          // Verify's if token is valid or expired
-          const { data } = await axios.get(
-            '/verifyAccessToken',
-            getApiHeadersWithToken()
-          );
+    const verifyToken = async () => {
+      if (!user || !token) {
+        // Redirect to login if user or token is not available
+        navigate('/login', {
+          state: { from: location.pathname },
+        });
+        return;
+      }
 
-          if (data.error === 'invalid access token') {
-            console.log('Invalid token');
-            localStorage.clear();
-            navigate('/login', {
-              state: { isTokenExpired: true },
-            });
-          }
-        } catch (error) {
-          if (error?.response?.data.error === 'invalid access token') {
-            console.log('Invalid token');
-            localStorage.clear();
-            navigate('/login', {
-              state: { isTokenExpired: true },
-            });
+      try {
+        // Verify if token is valid
+        const { data } = await axios.get(
+          '/verifyAccessToken',
+          getApiHeadersWithToken()
+        );
+
+        if (data.error === 'invalid access token') {
+          console.log('Invalid token');
+          localStorage.clear();
+          navigate('/login', {
+            state: { isTokenExpired: true },
+          });
+        } else {
+          // Check if the user is allowed to access the route based on role
+          const isAllowedUserRole = menuList
+            .find((menu) => menu.route === location.pathname)
+            ?.allowedRoles?.includes(userRole);
+
+          if (!isAllowedUserRole) {
+            setLoading(null);
+          } else {
+            setLoading(false);
           }
         }
-      };
-      verifyToken();
+      } catch (error) {
+        console.error('Token verification failed', error);
+        navigate('/login', {
+          state: { isTokenExpired: true },
+        });
+      }
+    };
 
-      // Check's if user with given role is allowed to access the route
-      const isAllowedUserRole = menuList
-        .find((menu) => menu.route === location.pathname)
-        ?.allowedRoles?.includes(userRole);
-      if (!isAllowedUserRole) setLoading(null);
-      else setLoading(false);
-    }
-  }, [
-    setLoading,
-    navigate,
-    location,
-    token,
-    user,
-    userRole,
-    getApiHeadersWithToken,
-  ]);
+    verifyToken();
+  }, [navigate, location, token, user, userRole, getApiHeadersWithToken]);
 
+  if (loading === true) return <LoadingScreen />;
   if (loading === null) return <NotFound />;
-  else if (loading) return <LoadingScreen />;
+
   return <>{children}</>;
 };
 

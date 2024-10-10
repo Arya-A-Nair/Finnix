@@ -1,6 +1,6 @@
 {
-  "short_name": "Dhanush",
-  "name": "Dhanush",
+  "short_name": "Finix",
+  "name": "Finix - A Fund Trail Analysis Tool",
   "icons": [
     {
       "src": "logo.svg",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#B7202E",
+  "background_color": "#FFF2F2"
 }

@@ -129,7 +129,7 @@ function UploadBtn({ setFiles, files, balanceStatus, selectedAccount }) {
       <div
         style={{
           borderRadius: '3.125rem',
-          border: '1.5px solid #A6ABC8',
+          border: '1.5px solid #B7202E',
           margin: '0 auto',
           padding: '1.5rem 4rem',
           textAlign: 'center',
@@ -146,8 +146,11 @@ function UploadBtn({ setFiles, files, balanceStatus, selectedAccount }) {
             flexDirection: 'column',
           }}
         >
-          <FaCloudUploadAlt size={200} color="#A6ABC8" />
-          <Typography children="Kindly Scan or Upload Data Here" />
+          <FaCloudUploadAlt size={200} color="#B7202E" />
+          <Typography
+            children="Kindly Scan or Upload Data Here"
+            color="primary"
+          />
         </label>
         <input
           id="fileInput"

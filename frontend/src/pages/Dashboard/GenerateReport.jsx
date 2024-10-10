@@ -109,7 +109,7 @@ function GenerateReport() {
     <Box
       sx={{
         display: 'flex',
-        height: '90%',
+        // height: '90%',
         width: '100%',
         alignItems: 'center',
         flexDirection: 'column',
@@ -138,7 +138,7 @@ function GenerateReport() {
             textAlign: 'center',
           }}
         >
-          <Typography
+          {/* <Typography
             variant="h5"
             fontWeight="700"
             color="primary"
@@ -147,11 +147,11 @@ function GenerateReport() {
             Generated Analysis Report
           </Typography>
 
-          <Divider />
+          <Divider /> */}
 
           <Grid container spacing={2} alignItems="center">
             {data.muleLen > 0 && (
-              <Grid item xs={3}>
+              <Grid item xs={12} sm={12} lg={5}>
                 <PieChartDia
                   chartData={chartData}
                   total={data.totalAccounts}
@@ -159,7 +159,7 @@ function GenerateReport() {
                 />
               </Grid>
             )}
-            <Grid item xs={data.muleLen > 0 ? 9 : 12}>
+            <Grid item xs={12} sm={12} lg={7}>
               <CustomChart
                 transactions={data?.fradulentTransaction?.length}
                 edges={23}
@@ -171,7 +171,8 @@ function GenerateReport() {
                 handleClick={handleClick}
               />
             </Grid>
-            {/* <Grid xs="12" mt={2}>
+          </Grid>
+          {/* <Grid xs="12" mt={2}>
               <Button
                 type="submit"
                 variant="contained"
@@ -187,7 +188,7 @@ function GenerateReport() {
                 Download Report
               </Button>
             </Grid> */}
-          </Grid>
+          {/* </Grid> */}
         </Box>
       )}
 

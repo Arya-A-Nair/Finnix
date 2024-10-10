@@ -53,6 +53,7 @@ function UploadData() {
         variant="h6"
         children="Past Uploaded Data"
         sx={{ marginTop: "2rem" }}
+        color="primary"
       />
       <Divider style={{ width: "100%" }} />
       <List sx={{ height: "50vh", overflow: "auto" }}>

@@ -6,12 +6,14 @@ import requests from '../../config/requests';
 import { useLocation, useNavigate } from 'react-router-dom';
 import AuthContext from '../../context/AuthContext';
 import { useSnackbar } from 'notistack';
+import useIsAuth from '../../hooks/useIsAuth';
 
 function Login() {
   const { enqueueSnackbar } = useSnackbar();
   const { state } = useLocation();
   const navigate = useNavigate();
   const { setToken, setUser, setUserRole } = React.useContext(AuthContext);
+  useIsAuth();
 
   React.useEffect(() => {
     if (state?.isTokenExpired)

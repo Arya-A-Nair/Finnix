@@ -19,6 +19,7 @@ import { HiMenuAlt2 } from 'react-icons/hi';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { menuList } from '../../../config/menuList';
 import { FaArrowRightFromBracket } from 'react-icons/fa6';
+import { enqueueSnackbar } from 'notistack';
 
 function Sidebar({ children }) {
   const navigate = useNavigate();
@@ -37,6 +38,7 @@ function Sidebar({ children }) {
 
   const handleLogOut = () => {
     localStorage.clear();
+    enqueueSnackbar('Logged out successfully', { variant: 'success' });
     navigate('/login');
     window.location.reload();
   };
@@ -135,7 +137,7 @@ function Sidebar({ children }) {
               <HiMenuAlt2 />
             </IconButton>
             <IconButton sx={{ mr: 2 }} onClick={() => navigate(-1)}>
-              <ArrowBackIcon />
+              <ArrowBackIcon color="primary" />
             </IconButton>
             <Typography variant="h6" noWrap component="div">
               {getRouteName()}
