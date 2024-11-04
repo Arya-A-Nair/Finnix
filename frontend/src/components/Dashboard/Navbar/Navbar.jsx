@@ -90,12 +90,7 @@ function Sidebar({ children }) {
                 onClickNavigateTo={item.onClickNavigateTo}
                 isActive={currentRoute === item.route}
               />
-              {/* {index === 4 && (
-                <Typography mt={1} color="primary.main">
-                  Other
-                </Typography>
-                <Divider sx={{ my: 3 }} />
-              )} */}
+              {index === 6 && <Divider sx={{ my: 3 }} />}
             </div>
           );
         })}

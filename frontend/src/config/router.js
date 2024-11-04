@@ -14,7 +14,7 @@ import Sidebar from '../components/Dashboard/Navbar/Navbar';
 import Navbar from '../components/Landing/Navbar/Navbar';
 import Complaints from '../pages/Dashboard/Complaints';
 import Settings from '../pages/Dashboard/Settings';
-import Account from "../pages/Dashboard/Account";
+import Account from '../pages/Dashboard/Account';
 import DetectFraud from '../pages/Dashboard/DetectFraud';
 import ProtectedRoute from '../components/ProtectedRoute';
 import NotFound from '../pages/NotFound/NotFound';
@@ -22,13 +22,9 @@ import Magic from '../pages/Landing/Magic';
 import SuspectedAccounts from '../pages/Dashboard/SuspectedAccount';
 import EdgeAnalysis from '../pages/Dashboard/EdgeAnalysis';
 import ViewHistory from '../pages/Dashboard/ViewHistory';
-import UserReport from "../pages/Dashboard/UserReport";
+import UserReport from '../pages/Dashboard/UserReport';
 
 const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Navigate to="/login" />,
-  },
   {
     path: 'login',
     element: <Login />,
@@ -43,34 +39,39 @@ const router = createBrowserRouter([
   },
 
   // OLD ROUTES
-  // {
-  //   path: '/',
-  //   element: (
-  //     <div style={{ backgroundColor: '#F2F7FF', minHeight: '100vh' }}>
-  //       <Navbar />
-  //       <Outlet />
-  //     </div>
-  //   ),
-  //   children: [
-  //     {
-  //       path: '/',
-  //       element: <Home />,
-  //     },
-  //     {
-  //       path: 'report-fraud',
-  //       element: <Report />,
-  //     },
-  //     // Protect this custom route
-  //     {
-  //       path: 'set-password/:token',
-  //       element: (
-  //         <>
-  //           <Magic />
-  //         </>
-  //       ),
-  //     },
-  //   ],
-  // },
+  {
+    path: '/',
+    element: (
+      <div
+        style={{
+          minHeight: '100vh',
+          marginTop: '2rem',
+        }}
+      >
+        <Navbar />
+        <Outlet />
+      </div>
+    ),
+    children: [
+      {
+        path: '/',
+        element: <Home />,
+      },
+      {
+        path: 'report-fraud',
+        element: <Report />,
+      },
+      // Protect this custom route
+      // {
+      //   path: 'set-password/:token',
+      //   element: (
+      //     <>
+      //       <Magic />
+      //     </>
+      //   ),
+      // },
+    ],
+  },
   {
     path: '/dashboard',
     element: (
@@ -98,7 +99,7 @@ const router = createBrowserRouter([
         element: <GenerateReport />,
       },
       {
-        path: "user-report",
+        path: 'user-report',
         element: <UserReport />,
       },
       {
@@ -126,7 +127,7 @@ const router = createBrowserRouter([
         element: <Settings />,
       },
       {
-        path: "account",
+        path: 'account',
         element: <Account />,
       },
       {

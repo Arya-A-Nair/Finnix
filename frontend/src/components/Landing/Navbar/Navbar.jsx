@@ -22,6 +22,7 @@ const routes = [
     hash: '#working',
   },
 ];
+
 function Navbar() {
   const route = useLocation();
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -46,7 +47,7 @@ function Navbar() {
             color: 'primary.main',
           }}
         >
-          Dhanush
+          Finix
         </Box>
       </Box>
       <Box
@@ -56,7 +57,7 @@ function Navbar() {
           alignItems: 'center',
           justifyContent: 'space-between',
           flex: '0.75',
-          zIndex: '10'
+          zIndex: '10',
         }}
       >
         <Box
@@ -103,7 +104,7 @@ function Navbar() {
               sx={{
                 textTransform: 'capitalize',
                 mr: 2,
-                fontSize: '1.1rem'
+                fontSize: '1.1rem',
               }}
             >
               Report Fraud

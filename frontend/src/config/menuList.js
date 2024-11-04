@@ -5,36 +5,36 @@ import {
   FaRupeeSign,
   FaMap,
   FaCommentAlt,
-} from "react-icons/fa";
-import { TbReportAnalytics } from "react-icons/tb";
-import { FaGear, FaIdBadge } from "react-icons/fa6";
-import { PiListMagnifyingGlassFill } from "react-icons/pi";
-import { BiLogoGraphql } from "react-icons/bi";
-import { FaUserSecret } from "react-icons/fa6";
-import roles from "../utils/userRoles";
-import EdgeAnalysis from "../pages/Dashboard/EdgeAnalysis";
+} from 'react-icons/fa';
+import { TbReportAnalytics } from 'react-icons/tb';
+import { FaGear, FaIdBadge } from 'react-icons/fa6';
+import { PiListMagnifyingGlassFill } from 'react-icons/pi';
+import { BiLogoGraphql } from 'react-icons/bi';
+import { FaUserSecret } from 'react-icons/fa6';
+import roles from '../utils/userRoles';
+import EdgeAnalysis from '../pages/Dashboard/EdgeAnalysis';
 
 export const menuList = [
   {
-    text: "Upload Data",
+    text: 'Upload Data',
     icon: <FaCloudUploadAlt />,
-    onClickNavigateTo: "upload-data",
+    onClickNavigateTo: 'upload-data',
     allowedRoles: [...roles.ALL],
-    route: "/dashboard/upload-data",
+    route: '/dashboard/upload-data',
   },
   {
-    text: "Formatted Data",
+    text: 'Formatted Data',
     icon: <FaFileAlt />,
     allowedRoles: [...roles.ALL],
-    onClickNavigateTo: "formatted-data",
-    route: "/dashboard/formatted-data",
+    onClickNavigateTo: 'formatted-data',
+    route: '/dashboard/formatted-data',
   },
   {
-    text: "Analysis Report",
+    text: 'Analysis Report',
     icon: <TbReportAnalytics />,
     allowedRoles: [...roles.ALL],
-    onClickNavigateTo: "generate-report",
-    route: "/dashboard/generate-report",
+    onClickNavigateTo: 'generate-report',
+    route: '/dashboard/generate-report',
   },
   // {
   //   text: "User Report",
@@ -44,70 +44,69 @@ export const menuList = [
   //   route: "/dashboard/user-report",
   // },
   {
-    text: "Track People",
+    text: 'Track People',
     icon: <FaSearch />,
     allowedRoles: [...roles.ALL],
-    onClickNavigateTo: "track-people",
-    route: "/dashboard/track-people",
+    onClickNavigateTo: 'track-people',
+    route: '/dashboard/track-people',
   },
   {
-    text: "View Cash Flow",
+    text: 'View Cash Flow',
     icon: <FaRupeeSign />,
     allowedRoles: [...roles.ALL],
-    onClickNavigateTo: "cash-flow",
-    route: "/dashboard/cash-flow",
+    onClickNavigateTo: 'cash-flow',
+    route: '/dashboard/cash-flow',
   },
   {
-    text: "Detect Fraud",
+    text: 'Detect Fraud',
     allowedRoles: [...roles.ALL],
     icon: <PiListMagnifyingGlassFill />,
-    onClickNavigateTo: "detect-fraud",
-    route: "/dashboard/detect-fraud",
+    onClickNavigateTo: 'detect-fraud',
+    route: '/dashboard/detect-fraud',
   },
   {
-    text: "Cash Analysis",
+    text: 'Cash Analysis',
     icon: <BiLogoGraphql />,
     allowedRoles: [...roles.ALL],
-    onClickNavigateTo: "edge-analysis",
-    route: "/dashboard/edge-analysis",
+    onClickNavigateTo: 'edge-analysis',
+    route: '/dashboard/edge-analysis',
   },
   {
-    text: "View Map Data",
+    text: 'View Map Data',
     icon: <FaMap />,
     allowedRoles: [...roles.ALL],
-    onClickNavigateTo: "map-data",
-    route: "/dashboard/map-data",
+    onClickNavigateTo: 'map-data',
+    route: '/dashboard/map-data',
   },
   {
-    text: "Suspicious",
+    text: 'Suspicious',
     icon: <FaUserSecret />,
     allowedRoles: [...roles.ALL],
-    onClickNavigateTo: "supected-accounts",
-    route: "/dashboard/supected-accounts",
+    onClickNavigateTo: 'supected-accounts',
+    route: '/dashboard/supected-accounts',
   },
   {
-    text: "Settings",
-    icon: <FaGear />,
-    allowedRoles: [...roles.ALL],
-    onClickNavigateTo: "settings",
-    route: "/dashboard/settings",
-  },
-  {
-    text: "Complaints",
+    text: 'Complaints',
     icon: <FaCommentAlt />,
     allowedRoles: [...roles.ALL],
-    onClickNavigateTo: "complaints",
-    route: "/dashboard/complaints",
-  },
-
-  {
-    text: "Dashboard",
-    allowedRoles: [...roles.ALL],
-    route: "/dashboard",
+    onClickNavigateTo: 'complaints',
+    route: '/dashboard/complaints',
   },
   {
-    text: "View History",
+    text: 'Settings',
+    icon: <FaGear />,
     allowedRoles: [...roles.ALL],
-    route: "/dashboard/view-history",
+    onClickNavigateTo: 'settings',
+    route: '/dashboard/settings',
   },
+  // {
+  //   text: 'Dashboard',
+  //   allowedRoles: [...roles.ALL],
+  //   route: '/dashboard',
+  // },
+  // {
+  //   text: 'View History',
+  //   allowedRoles: [...roles.ALL],
+  //   route: '/dashboard/view-history',
+  // },
 ];

@@ -30,16 +30,16 @@ const from = [
 const to = [84.09252, 20.126544];
 
 const columns = [
-  {
-    field: 'aadharNumber',
-    headerName: 'Aadhar Number',
-    flex: 1,
-  },
-  {
-    field: 'accountNumber',
-    headerName: 'Account Number',
-    flex: 1,
-  },
+  // {
+  //   field: 'aadharNumber',
+  //   headerName: 'Aadhar Number',
+  //   flex: 1,
+  // },
+  // {
+  //   field: 'accountNumber',
+  //   headerName: 'Account Number',
+  //   flex: 1,
+  // },
   {
     field: 'firstName',
     headerName: 'Name',
@@ -48,11 +48,11 @@ const columns = [
       return `${row.firstName} ${row.lastName}`;
     },
   },
-  {
-    field: 'bankBranch',
-    headerName: 'Branch',
-    flex: 1,
-  },
+  // {
+  //   field: 'bankBranch',
+  //   headerName: 'Branch',
+  //   flex: 1,
+  // },
   {
     field: 'bankName',
     headerName: 'Bank Name',
@@ -63,32 +63,32 @@ const columns = [
     headerName: 'Created At',
     flex: 1,
     renderCell: (params) => {
-      return new Date(params.value).toLocaleString();
+      return new Date(params.value).toLocaleDateString();
     },
   },
-  {
-    field: 'descriptionOfFraud',
-    headerName: 'Description of Fraud',
-    flex: 1,
-  },
-  {
-    field: 'type',
-    headerName: 'Type',
-    flex: 1,
-  },
+  // {
+  //   field: 'descriptionOfFraud',
+  //   headerName: 'Description of Fraud',
+  //   flex: 1,
+  // },
+  // {
+  //   field: 'type',
+  //   headerName: 'Type',
+  //   flex: 1,
+  // },
   {
     field: 'typeOfFraud',
     headerName: 'Type of Fraud',
     flex: 1,
   },
-  {
-    field: 'updatedAt',
-    headerName: 'Updated At',
-    flex: 1,
-    renderCell: (params) => {
-      return new Date(params.value).toLocaleString();
-    },
-  },
+  // {
+  //   field: 'updatedAt',
+  //   headerName: 'Updated At',
+  //   flex: 1,
+  //   renderCell: (params) => {
+  //     return new Date(params.value).toLocaleString();
+  //   },
+  // },
 ];
 
 let map = null;
@@ -197,12 +197,13 @@ function Complaints() {
         justifyContent: 'space-between',
         bgcolor: 'background.default',
         borderRadius: '0.5rem',
+        pb: 3,
       }}
     >
       <Box
         sx={{
           height: '100%',
-          width: '60%',
+          width: '55%',
           borderRadius: '0.5rem',
         }}
         id="map"
@@ -212,7 +213,7 @@ function Complaints() {
       <Box
         sx={{
           display: 'flex',
-          width: '40%',
+          width: '45%',
           height: '100%',
         }}
       >
@@ -324,7 +325,9 @@ function Complaints() {
             flexDirection="column"
             alignItems="center"
             justifyContent="center"
-            width="100%"
+            sx={{
+              width: '100%',
+            }}
           >
             <Box
               sx={{
@@ -395,6 +398,9 @@ function Complaints() {
                       ],
                       zoom: 10,
                     });
+                  }}
+                  sx={{
+                    width: '90%',
                   }}
                 />
               </Box>
@@ -468,6 +474,9 @@ function Complaints() {
                       ],
                       zoom: 10,
                     });
+                  }}
+                  sx={{
+                    width: '90%',
                   }}
                 />
               </Box>

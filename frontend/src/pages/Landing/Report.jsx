@@ -7,7 +7,7 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
-import axios from "../../config/axios";
+import axios from '../../config/axios';
 import { enqueueSnackbar } from 'notistack';
 import { useNavigate } from 'react-router-dom';
 
@@ -48,8 +48,9 @@ export default function Report() {
         descriptionOfFraud: value.description,
       });
       if (response.status === 200) {
-
-        enqueueSnackbar("Report Submitted Successfully", { variant: "success" });
+        enqueueSnackbar('Report Submitted Successfully', {
+          variant: 'success',
+        });
         setValue({
           firstName: '',
           lastName: '',
@@ -60,17 +61,22 @@ export default function Report() {
           typeFraud: '',
           description: '',
         });
-        navigate("/");
+        navigate('/');
       }
-
     } catch (error) {
       console.log(error);
-      enqueueSnackbar("Unable to submit report" + error.message, { variant: "error" });
+      enqueueSnackbar('Unable to submit report' + error.message, {
+        variant: 'error',
+      });
     }
   }
 
   return (
-    <>
+    <Box
+    sx={{
+      mt: 8,
+    }}
+    >
       <Box sx={{ pb: 2, px: 2 }} component="form" onSubmit={handleSubmit}>
         <Box display="flex" alignItems="center" flexDirection="column" mb={4}>
           <Typography
@@ -107,7 +113,7 @@ export default function Report() {
                   fullWidth
                   value={value.firstName}
                   onChange={handleChange}
-                //   defaultValue="Hello World"
+                  //   defaultValue="Hello World"
                 />
               </Grid>
               <Grid item xs={6}>
@@ -132,7 +138,7 @@ export default function Report() {
                   fullWidth
                   value={value.bank}
                   onChange={handleChange}
-                //   defaultValue="Hello World"
+                  //   defaultValue="Hello World"
                 />
               </Grid>
               <Grid item xs={6}>
@@ -223,12 +229,12 @@ export default function Report() {
                 />
               </Grid>
             </Grid>
-            <Button variant="contained" type='submit'>
+            <Button variant="contained" type="submit">
               Submit Complaint
             </Button>
           </Box>
         </Box>
       </Box>
-    </>
+    </Box>
   );
 }

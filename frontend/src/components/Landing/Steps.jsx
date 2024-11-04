@@ -46,7 +46,7 @@ function Steps() {
             bgcolor: 'white',
             my: '2%',
             mx: '1%',
-            zIndex: '1'
+            zIndex: '1',
           }}
           elevation={0}
           key={i}
@@ -64,7 +64,7 @@ function Steps() {
           >
             <Typography
               variant="h2"
-              color={'#6CBCFC'}
+              color="primary.main"
               fontSize={'5rem'}
               fontWeight="900"
             >

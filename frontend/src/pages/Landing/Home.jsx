@@ -1,11 +1,12 @@
 import React from 'react';
-import { Box, Card, CardContent, Typography } from '@mui/material';
+import { Box, Card, CardContent, Typography, useTheme } from '@mui/material';
 import Footer from '../../components/Landing/Footer/Footer';
 import ScrollToTopButton from '../../components/Landing/ScrollToTopButton/ScrollToTopButton';
 import Cards from '../../components/Landing/Cards';
 import Steps from '../../components/Landing/Steps';
 
 function Home() {
+  const theme = useTheme();
   return (
     <>
       <Box
@@ -43,7 +44,7 @@ function Home() {
           Fast track investigations with{' '}
           <span
             style={{
-              color: '#0B409C',
+              color: theme.palette.primary.light,
             }}
           >
             Automated Data
@@ -65,7 +66,7 @@ function Home() {
               width: '100%',
               height: '100%',
             }}
-            src="/Home-Page-illustration.svg"
+            src="/home-photo.png"
             alt=""
           />
         </Box>
@@ -160,7 +161,11 @@ function Home() {
               a major source of money laundering, was 604 billion rupees in
               2022.
             </Typography>
-            <img src="/stats-bg-gradient.svg" alt="" style={{position: 'absolute', width: '50vw'}} />
+            <img
+              src="/stats-bg-gradient.svg"
+              alt=""
+              style={{ position: 'absolute', width: '50vw' }}
+            />
             <Box
               width={{
                 xl: '56vw',
@@ -217,20 +222,6 @@ function Home() {
             flexWrap={'wrap'}
             position={'relative'}
           >
-            <Box
-              width={'100%'}
-              height={'100%'}
-              position={'absolute'}
-              top={0}
-              left={0}
-              display={'flex'}
-              alignItems={'center'}
-              justifyContent={'center'}
-              p={4}
-              // zIndex={-1}
-            >
-              <img style={{width: '100vw'}} src="/working-bg-gradient.svg" alt="" />
-            </Box>
             <Steps />
           </Box>
         </Box>
