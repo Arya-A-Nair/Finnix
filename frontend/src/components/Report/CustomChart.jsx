@@ -4,7 +4,7 @@ import { PiShareNetworkBold } from 'react-icons/pi';
 import { FaBridge, FaMoneyBillTransfer } from 'react-icons/fa6';
 import { HiMiniUserGroup } from 'react-icons/hi2';
 import { GiHole } from 'react-icons/gi';
-import { BiBlock } from 'react-icons/bi';
+import { BiBlock, BiLogoGraphql } from 'react-icons/bi';
 import { BiInfoCircle } from 'react-icons/bi';
 function CustomChart({
   networks,
@@ -69,51 +69,51 @@ function CustomChart({
       }`,
       info: 'Get shell accounts whose only purpose is to push money',
     },
-    // {
-    // 	name: "Groups",
-    // 	icon: <HiMiniUserGroup style={style} />,
-    // 	value: groups,
-    // 	impact: `${
-    // 		groups === 0
-    // 			? "No"
-    // 			: groups < 5
-    // 			? "Low"
-    // 			: groups < 10
-    // 			? "Medium"
-    // 			: "High"
-    // 	}`,
-    // 	info: "Get groups of accounts that are connected to each other",
-    // },
-    // {
-    // 	name: "Sink Holes",
-    // 	icon: <GiHole style={style} />,
-    // 	value: holes,
-    // 	impact: `${
-    // 		holes === 0 ? "No" : holes < 5 ? "Low" : holes < 10 ? "Medium" : "High"
-    // 	}`,
-    // 	info: "Get the to know wether the asset has been paid via illicit means",
-    // },
-    // {
-    // 	name: "Fraud Accounts",
-    // 	icon: <BiBlock style={style} />,
-    // 	value: fAccounts,
-    // 	impact: `${
-    // 		fAccounts === 0
-    // 			? "No"
-    // 			: fAccounts < 5
-    // 			? "Low"
-    // 			: fAccounts < 10
-    // 			? "Medium"
-    // 			: "High"
-    // 	}`,
-    // 	info: "Get accounts which start and end very fast while also transacting heavy amounts",
-    // },
-    // {
-    //     name: 'Edge Analysis',
-    //     icon: <BiLogoGraphql style={style} />,
-    //     value: edges,
-    //     impact: `${edges < 5 ? "No" : edges  < 15 ? "Low" : edges < 50 ? "Medium" : "High"}`
-    // }
+    {
+    	name: "Groups",
+    	icon: <HiMiniUserGroup style={style} />,
+    	value: groups,
+    	impact: `${
+    		groups === 0
+    			? "No"
+    			: groups < 5
+    			? "Low"
+    			: groups < 10
+    			? "Medium"
+    			: "High"
+    	}`,
+    	info: "Get groups of accounts that are connected to each other",
+    },
+    {
+    	name: "Sink Holes",
+    	icon: <GiHole style={style} />,
+    	value: holes,
+    	impact: `${
+    		holes === 0 ? "No" : holes < 5 ? "Low" : holes < 10 ? "Medium" : "High"
+    	}`,
+    	info: "Get the to know wether the asset has been paid via illicit means",
+    },
+    {
+    	name: "Fraud Accounts",
+    	icon: <BiBlock style={style} />,
+    	value: fAccounts,
+    	impact: `${
+    		fAccounts === 0
+    			? "No"
+    			: fAccounts < 5
+    			? "Low"
+    			: fAccounts < 10
+    			? "Medium"
+    			: "High"
+    	}`,
+    	info: "Get accounts which start and end very fast while also transacting heavy amounts",
+    },
+    {
+        name: 'Edge Analysis',
+        icon: <BiLogoGraphql style={style} />,
+        value: edges,
+        impact: `${edges < 5 ? "No" : edges  < 15 ? "Low" : edges < 50 ? "Medium" : "High"}`
+    }
   ];
 
   return (

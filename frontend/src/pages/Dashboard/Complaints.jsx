@@ -30,11 +30,11 @@ const from = [
 const to = [84.09252, 20.126544];
 
 const columns = [
-  // {
-  //   field: 'aadharNumber',
-  //   headerName: 'Aadhar Number',
-  //   flex: 1,
-  // },
+  {
+    field: 'aadharNumber',
+    headerName: 'Aadhar Number',
+    flex: 1,
+  },
   {
     field: 'accountNumber',
     headerName: 'Account Number',
@@ -58,37 +58,37 @@ const columns = [
     headerName: 'Bank Name',
     flex: 1,
   },
-  // {
-  //   field: 'createdAt',
-  //   headerName: 'Created At',
-  //   flex: 1,
-  //   renderCell: (params) => {
-  //     return new Date(params.value).toLocaleString();
-  //   },
-  // },
-  // {
-  //   field: 'descriptionOfFraud',
-  //   headerName: 'Description of Fraud',
-  //   flex: 1,
-  // },
-  // {
-  //   field: 'type',
-  //   headerName: 'Type',
-  //   flex: 1,
-  // },
-  // {
-  //   field: 'typeOfFraud',
-  //   headerName: 'Type of Fraud',
-  //   flex: 1,
-  // },
-  // {
-  //   field: 'updatedAt',
-  //   headerName: 'Updated At',
-  //   flex: 1,
-  //   renderCell: (params) => {
-  //     return new Date(params.value).toLocaleString();
-  //   },
-  // },
+  {
+    field: 'createdAt',
+    headerName: 'Created At',
+    flex: 1,
+    renderCell: (params) => {
+      return new Date(params.value).toLocaleString();
+    },
+  },
+  {
+    field: 'descriptionOfFraud',
+    headerName: 'Description of Fraud',
+    flex: 1,
+  },
+  {
+    field: 'type',
+    headerName: 'Type',
+    flex: 1,
+  },
+  {
+    field: 'typeOfFraud',
+    headerName: 'Type of Fraud',
+    flex: 1,
+  },
+  {
+    field: 'updatedAt',
+    headerName: 'Updated At',
+    flex: 1,
+    renderCell: (params) => {
+      return new Date(params.value).toLocaleString();
+    },
+  },
 ];
 
 let map = null;

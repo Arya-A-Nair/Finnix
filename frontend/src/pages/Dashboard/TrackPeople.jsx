@@ -161,7 +161,6 @@ function TrackPeople() {
     const response = await axios.get(
       `${requests.getBranch}?accountNumber=${accountNumber}`
     );
-    console.log('hello', response.data.data);
     return response.data.data;
   };
 

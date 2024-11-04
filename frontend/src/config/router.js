@@ -14,7 +14,7 @@ import Sidebar from '../components/Dashboard/Navbar/Navbar';
 import Navbar from '../components/Landing/Navbar/Navbar';
 import Complaints from '../pages/Dashboard/Complaints';
 import Settings from '../pages/Dashboard/Settings';
-// import Account from "../pages/Dashboard/Account";
+import Account from "../pages/Dashboard/Account";
 import DetectFraud from '../pages/Dashboard/DetectFraud';
 import ProtectedRoute from '../components/ProtectedRoute';
 import NotFound from '../pages/NotFound/NotFound';
@@ -22,7 +22,7 @@ import Magic from '../pages/Landing/Magic';
 import SuspectedAccounts from '../pages/Dashboard/SuspectedAccount';
 import EdgeAnalysis from '../pages/Dashboard/EdgeAnalysis';
 import ViewHistory from '../pages/Dashboard/ViewHistory';
-// import UserReport from "../pages/Dashboard/UserReport";
+import UserReport from "../pages/Dashboard/UserReport";
 
 const router = createBrowserRouter([
   {
@@ -97,10 +97,10 @@ const router = createBrowserRouter([
         path: 'generate-report',
         element: <GenerateReport />,
       },
-      // {
-      //   path: "user-report",
-      //   element: <UserReport />,
-      // },
+      {
+        path: "user-report",
+        element: <UserReport />,
+      },
       {
         path: 'track-people',
         element: <TrackPeople />,
@@ -125,10 +125,10 @@ const router = createBrowserRouter([
         path: 'settings',
         element: <Settings />,
       },
-      // {
-      //   path: "account",
-      //   element: <Account />,
-      // },
+      {
+        path: "account",
+        element: <Account />,
+      },
       {
         path: 'complaints',
         element: <Complaints />,
