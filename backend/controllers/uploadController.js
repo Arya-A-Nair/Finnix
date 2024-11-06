@@ -1,25 +1,27 @@
-import Files from '../models/uploadFile';
-import { processImages } from '../services/ocr';
-import path from 'path';
-import request from 'request';
-import csvParser from 'csv-parser';
-import Transaction from '../models/transactions';
-import Account from '../models/accountHolder';
-import LooseTransaction from '../models/looseTransactions';
-import { v4 as uuidv4 } from 'uuid';
-import { encrypt } from '../services/encrypt';
-import backendURL from '../constants/backendURL';
+import Files from "../models/uploadFile";
+import { processImages } from "../services/ocr";
+import path from "path";
+import request from "request";
+import csvParser from "csv-parser";
+import Transaction from "../models/transactions";
+import Account from "../models/accountHolder";
+import LooseTransaction from "../models/looseTransactions";
+import { v4 as uuidv4 } from "uuid";
+import { encrypt } from "../services/encrypt";
+import backendURL from "../constants/backendURL";
+import { b } from "../js_baml_client/async_client";
+import { Image } from "@boundaryml/baml";
 
-var fs = require('fs');
+var fs = require("fs");
 
 const uploadOperation = {
   fileToTransactions: (tempFile, userAccount, columnNames) => {
-    if (!tempFile.fileType.includes('csv')) return;
+    if (!tempFile.fileType.includes("csv")) return;
     let f = fs.createReadStream(
       path.resolve(__dirname, `../public/uploads/${tempFile.name}`)
     );
 
-    f.pipe(csvParser()).on('data', async (row) => {
+    f.pipe(csvParser()).on("data", async (row) => {
       if (
         !row[columnNames.senderAccount] ||
         !row[columnNames.receiverAccount] ||
@@ -78,7 +80,7 @@ const uploadOperation = {
             });
           }
         } catch (error) {
-          console.log('Tried to create duplicate account' + error.message);
+          console.log("Tried to create duplicate account" + error.message);
         }
       }
     });
@@ -105,7 +107,7 @@ const uploadOperation = {
   // },
 
   apiExternalOcr: (tempFile, userAccount) => {
-    if (!tempFile.fileType.includes('image/')) return;
+    if (!tempFile.fileType.includes("image/")) return;
 
     // Nanonets OCR for images files
 
@@ -115,13 +117,13 @@ const uploadOperation = {
       ),
     };
     const options = {
-      url: 'https://app.nanonets.com/api/v2/OCR/Model/0a5eae18-413d-401a-81ba-52a6c67ccdd3/LabelFile/?async=false',
+      url: "https://app.nanonets.com/api/v2/OCR/Model/0a5eae18-413d-401a-81ba-52a6c67ccdd3/LabelFile/?async=false",
       formData: form_data,
       headers: {
         Authorization:
-          'Basic ' +
-          Buffer.from('bc8ac87f-2207-11ee-b063-7ad52bebbcde' + ':').toString(
-            'base64'
+          "Basic " +
+          Buffer.from("bc8ac87f-2207-11ee-b063-7ad52bebbcde" + ":").toString(
+            "base64"
           ),
       },
     };
@@ -133,7 +135,7 @@ const uploadOperation = {
       }
       // console.log(body);
       const data = JSON.parse(body);
-      const result0 = data.result[0].prediction.find((x) => x.label == 'table');
+      const result0 = data.result[0].prediction.find((x) => x.label == "table");
       const result1 = result0.cells;
 
       const finalResult = [];
@@ -153,14 +155,14 @@ const uploadOperation = {
         }
 
         let namesArray = [
-          'DHAIR',
-          'ADITYA',
-          'SUHAS',
-          'KESHA',
-          'SUBHA',
-          'GROFE',
+          "DHAIR",
+          "ADITYA",
+          "SUHAS",
+          "KESHA",
+          "SUBHA",
+          "GROFE",
         ];
-        let holderName = '';
+        let holderName = "";
 
         namesArray.forEach((name) => {
           let indexOfName = result1[i + 2].text.includes(name);
@@ -170,7 +172,7 @@ const uploadOperation = {
           }
         });
 
-        if (result1[i + 3].text === '') {
+        if (result1[i + 3].text === "") {
           obj = {
             id: i / 6 + 1,
             date: result1[i].text,
@@ -205,7 +207,7 @@ const uploadOperation = {
   },
 
   apiOcr: (tempFile, userAccount) => {
-    if (!tempFile.fileType.includes('pdf')) return;
+    if (!tempFile.fileType.includes("pdf")) return;
     const form_data = {
       file: fs.createReadStream(
         path.resolve(__dirname, `../public/uploads/${tempFile.name}`)
@@ -302,7 +304,7 @@ const uploadOperation = {
     let options = {
       url: `${backendURL}getPdfData`,
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       formData: form_data,
     };
@@ -311,7 +313,7 @@ const uploadOperation = {
       console.log(httpResponse.statusCode);
       if (httpResponse.statusCode == 500)
         return res.status(500).json({
-          message: 'Error',
+          message: "Error",
         });
       body = JSON.parse(body);
       let transactions = [];
@@ -345,16 +347,28 @@ const uploadOperation = {
     const { files, userAccount, query, body } = req;
     const columnNames = JSON.parse(body.columnNames);
     const { useExternalApi } = body;
-    console.log(useExternalApi);
+    console.log(typeof files)
 
     try {
+      console.log("check");
+      const img = Image.fromUrl(
+        "https://i.ibb.co/wyB8F46/SBI-Bank-Statement-1691580368016-314327775.jpg"
+      );
+
+      const response = await b.ExtractDoc([img]);
+      console.log(response);
+      return res.status(200).send({
+        hello: "it works",
+        output: response,
+      });
+
       if (!files)
         return res.status(500).send({
           status: 500,
           code: 0,
           data: null,
           message: null,
-          error: 'Unable to upload file',
+          error: "Unable to upload file",
         });
       const uploadedFiles = [];
       for (let file of files) {
@@ -367,15 +381,15 @@ const uploadOperation = {
         });
         uploadedFiles.push(tempFile);
         uploadOperation.fileToTransactions(tempFile, userAccount, columnNames);
-        // if (useExternalApi) {
-        uploadOperation.apiExternalOcr(tempFile, userAccount);
-        // }
+        if (useExternalApi) {
+          uploadOperation.apiExternalOcr(tempFile, userAccount);
+        }
         // else {
         // uploadOperation.apiOcr(tempFile, userAccount);
 
-        if (!tempFile.fileType.includes('pdf'))
+        if (!tempFile.fileType.includes("pdf"))
           return res.status(200).json({
-            message: 'File Uploaded Successfully',
+            message: "File Uploaded Successfully",
             error: null,
           });
         const form_data = {
@@ -386,16 +400,17 @@ const uploadOperation = {
         let options = {
           url: `${backendURL}getPdfData`,
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           formData: form_data,
         };
 
         request.post(options, function (err, httpResponse, body) {
           console.log(httpResponse.statusCode);
+          console.log(body);
           if (httpResponse.statusCode == 500)
             return res.status(500).json({
-              message: 'Unable to post request on flask api',
+              message: "Unable to post request on flask api",
               error: err,
             });
           body = JSON.parse(body);

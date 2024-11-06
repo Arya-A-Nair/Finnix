@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "outDir": "../js_baml_client", // Output folder for JS files
+    "rootDir": "./", // Root folder for TS files
+    "target": "es6", // ES version
+    "module": "commonjs", // Module type, can be 'esnext' if using ES modules
+    "strict": true // Enable strict type-checking
+  },
+  "include": ["**/*"] // Folder with TS files
+}

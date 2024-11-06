@@ -6,11 +6,13 @@
   "scripts": {
     "dev": "nodemon -r esm server.js ",
     "start": "nodemon -r esm server.js ",
-    "prod": "node -r esm server.js "
+    "prod": "node -r esm server.js ",
+    "baml-generate": "baml-cli generate"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@boundaryml/baml": "^0.67.0",
     "aes256": "^1.1.0",
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
