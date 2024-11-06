@@ -44,8 +44,8 @@ export interface Transaction {
   senderAccount: string
   receiverAccount: string
   date: string
-  senderName: string
-  receiverName: string
+  senderName?: string | null
+  receiverName?: string | null
   amount: number
   id: string
   createdBy: string

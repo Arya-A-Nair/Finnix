@@ -7,8 +7,8 @@ class Transaction {
   senderAccount string
   receiverAccount string
   date string
-  senderName string
-  receiverName string
+  senderName string?
+  receiverName string?
   amount float
   id string @description("The unique identifier for the transaction. Make it a random UUID.")
   createdBy string @description("The user account that created the transaction.")
@@ -18,7 +18,7 @@ class Transaction {
 function ExtractDoc(doc: image[]) -> ExtractedDoc {
   // Specify a client as provider/model-name
   // you can use custom LLM params with a custom client name from clients.baml like "client CustomHaiku"
-  client CustomGemini 
+  client CustomSonnet
   prompt #"
     Extract from this content:
     {{ doc }}

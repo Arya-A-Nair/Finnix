@@ -347,14 +347,13 @@ const uploadOperation = {
     const { files, userAccount, query, body } = req;
     const columnNames = JSON.parse(body.columnNames);
     const { useExternalApi } = body;
-    console.log(typeof files)
+    console.log(files)
 
     try {
-      console.log("check");
       const img = Image.fromUrl(
         "https://i.ibb.co/wyB8F46/SBI-Bank-Statement-1691580368016-314327775.jpg"
       );
-
+      
       const response = await b.ExtractDoc([img]);
       console.log(response);
       return res.status(200).send({

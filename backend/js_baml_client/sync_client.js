@@ -30,7 +30,7 @@ class BamlSyncClient {
     * right to provide a sync version in the future.
     */
     get stream() {
-        throw new Error("stream is not available in BamlSyncClient. Use `import { b } from 'baml_client/async_client'");
+        throw new Error("stream is not available in BamlSyncClient. Use `import { b } from 'baml_client/async_client");
     }
     ExtractDoc(doc, __baml_options__) {
         var _a;
