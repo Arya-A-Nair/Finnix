@@ -12,7 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "aes256": "^1.1.0",
-    "bcrypt": "^5.1.0",
+    "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
     "csv-parser": "^3.0.0",
     "csvtojson": "^2.0.10",
